@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #ebebeb;
+}
+
+.button {
+    margin-right: 5px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    background: #eceef2;
+    border: 1px solid #eceef2;
+    color: #3f547f;
+    font-size: 14px;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: all 250ms ease-in-out;
+}
+.button:hover {
+    background: #d9dde5;
+    border-color: #d9dde5;
+    color: #3f547f;
+    cursor: pointer;
+}
+.button:focus {
+    outline: none;
+}
+.button.active {
+    background: #3f547f;
+    border-color: #3f547f;
+    color: #ffffff;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.playground {
+    position: relative;
+    height: 800px;
+}
+
+.block {
+    position: absolute;
+    box-shadow: 5px 10px 35px 3px rgba(155, 155, 155, 0.85);
+    opacity: 0.6;
+    border-radius: 10px;
+    background: linear-gradient(0deg, #e35325, #ff865e);
+    filter: blur(0.5px);
+}
+.block:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    background: url('img/zemanta-logo-white.svg') no-repeat center center;
+}
