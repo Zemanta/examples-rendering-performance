@@ -101,3 +101,17 @@ body {
     background: linear-gradient(0deg, #e35325, #ff865e);
     filter: blur(0.5px);
 }
+
+.loading-box {
+    width: 300px;
+    height: 20px;
+    text-align: left;
+    border: 3px solid #3f547f;
+}
+
+.loading-bar {
+    width: 0px;
+    height: 100%;
+    background-color: #3f547f;
+}
+
