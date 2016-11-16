@@ -1,0 +1,109 @@
+/* keyframes definition for WebKit browsers */
+
+@keyframes animation-x-position {
+  from { left: 0; }
+  to   { left: 780px; }
+}
+
+@keyframes animation-x-transform {
+  from { transform: translateX(0); }
+  to   { transform: translateX(780px); }
+}
+
+@keyframes animation-y-position {
+  to, from { top: 0; }
+  50% { top: 580px; }
+}
+
+@keyframes animation-y-transform {
+  to, from { transform: translateY(0); }
+  50% { transform: translateY(580px); }
+}
+
+@keyframes animation-y-transform-color {
+  to, from { transform: translateY(0); background: red; }
+  50% { transform: translateY(580px); background: blue;}
+}
+
+@keyframes animation-y-position-color {
+  to, from { transform: translateY(0); background: red; }
+  50% { transform: translateY(580px); background: blue;}
+}
+
+/* styles for the stage and animated elements */
+.stage {
+  border: 2px solid #666;
+  position: relative;
+  width: 800px;
+  height: 600px;
+}
+
+.shape {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 4.8s;
+}
+
+.shape__outer {
+  position: absolute;
+  width: 20px;
+  height:100%;
+  /*animation-name: travel;*/
+  animation-direction: alternate;
+}
+
+.shape__inner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: red;
+  animation-duration: 3.8s;
+}
+
+.shape__inner--animate-position {
+  animation-name: animation-y-position;
+}
+
+.shape__inner--animate-transform {
+  animation-name: animation-y-transform;
+}
+
+.shape__inner--animate-position-color {
+  animation-name: animation-y-position-color;
+}
+
+.shape__inner--animate-transform-color {
+  animation-name: animation-y-transform-color;
+}
+
+.shape__outer--animate-position {
+  animation-name: animation-x-position;
+}
+
+.shape__outer--animate-transform {
+  animation-name: animation-x-transform;
+}
+
+
+.shape__inner--heavy-style { 
+  background: radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
+  opacity: 0.9;
+  filter: blur(2px);
+  box-shadow: 5px 10px 35px 3px rgba(155,155,155,0.85);
+}
+
+.animate-x {
+  animation-name: travel;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 4.8s;
+}
+
+.animate-y {
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-duration: 4.2s;
+}
+
