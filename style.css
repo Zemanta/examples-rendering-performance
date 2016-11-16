@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #ebebeb;
+    font-family: 'Arial';
+    font-size: 16px;
+    color: #333333;
 }
 
 .button {
@@ -12,9 +15,10 @@ body {
     background: #eceef2;
     border: 1px solid #eceef2;
     color: #3f547f;
-    font-size: 14px;
+    font-size: 1rem;
     border-radius: 3px;
     box-shadow: none;
+    font-family: 'Arial';
     transition: all 250ms ease-in-out;
 }
 .button:hover {
@@ -32,6 +36,18 @@ body {
     color: #ffffff;
 }
 
+.checkbox {
+    position: relative;
+    top: -2px;
+    margin-right: 10px;
+}
+
+.controls label {
+    float: right;
+    margin-left: 5px;
+    line-height: 40px;
+}
+
 .section {
     margin-bottom: 20px;
     padding: 20px;
@@ -47,8 +63,8 @@ body {
 
 .block {
     position: absolute;
+    border-radius: 8px;
     background: #e35325;
-    will-change: transform;
 }
 .block:before {
     content: '';
@@ -59,10 +75,12 @@ body {
     left: 5px;
     background: url('img/zemanta-logo-white.svg') no-repeat center center;
 }
+.block.layers-enabled {
+    will-change: transform;
+}
 .block.heavy-paint {
     box-shadow: 5px 10px 35px 3px rgba(155, 155, 155, 0.85);
     opacity: 0.7;
-    border-radius: 5px;
     background: linear-gradient(0deg, #e35325, #ff865e);
     filter: blur(0.5px);
 }

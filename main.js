@@ -4,6 +4,7 @@
 
     function init () {
         var controlButtons = document.querySelectorAll('#controls button');
+        var controlCheckboxes = document.querySelectorAll('#controls [type=checkbox]');
         playground = document.getElementById('playground');
 
         controlButtons.forEach((button) => {
@@ -12,14 +13,21 @@
                 executeAction(event.target.dataset.action);
             });
         });
+
+        controlCheckboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', function (event) {
+                executeAction(event.target.dataset.action, event.target.checked);
+            });
+        });
     }
 
-    function executeAction (action) {
+    function executeAction (action, ...params) {
         switch (action) {
         case 'stop': return stop();
         case 'clearPlayground': return clearPlayground();
         case 'animateFSL': return initAnimate(animateFSL);
         case 'animateNoFSL': return initAnimate(animateNoFSL);
+        case 'toggleLayers': return toggleLayers(params[0]);
         }
     }
 
@@ -83,6 +91,17 @@
             requestAnimationFrame(() => {
                 animateNoFSL(blocks);
             });
+        }
+    }
+
+    function toggleLayers (enabled) {
+        var elements = playground.children;
+        for (let i = 0; i < elements.length; i++) {
+            if (enabled) {
+                elements[i].classList.add('layers-enabled');
+            } else {
+                elements[i].classList.remove('layers-enabled');
+            }
         }
     }
 
