@@ -7,8 +7,34 @@ body {
     color: #333333;
 }
 
+.section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.row:first-child {
+    margin-top: 0;
+}
+
+.number-input-label {
+    margin-right: 15px;
+}
+.number-input {
+    vertical-align: top;
+    width: 40px;
+    line-height: 34px;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
 .button {
-    margin-right: 5px;
+    margin-right: 10px;
     height: 40px;
     line-height: 40px;
     padding: 0 15px;
@@ -42,17 +68,8 @@ body {
     margin-right: 10px;
 }
 
-.controls label {
-    float: right;
-    margin-left: 5px;
-    line-height: 40px;
-}
-
-.section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+.controls .checkbox-label {
+    margin-right: 15px;
 }
 
 .playground {

@@ -7,10 +7,15 @@
     </head>
     <body class="blocks">
         <div class="controls section" id="controls">
-            <button data-action="clearPlayground" class="button">Clear</button>
-            <button data-action="animateFSL" class="button">Animate (FSL)</button>
-            <button data-action="animateNoFSL" class="button">Animate (optimized)</button>
-            <label><input type="checkbox" data-action="toggleLayers" class="checkbox" />Layers enabled</label>
+            <div class="row">
+                <label class="number-input-label">Number of elements:<input type="text" id="numberOfElements" class="number-input"/></label>
+                <button data-action="clearPlayground" class="button">Clear</button>
+                <button data-action="animateFSL" class="button">Animate (FSL)</button>
+                <button data-action="animateNoFSL" class="button">Animate (optimized)</button>
+            </div>
+            <div class="row">
+                <label class="checkbox-label"><input type="checkbox" data-action="toggleLayers" class="checkbox" />Layers enabled</label>
+            </div>
         </div>
 
         <div class="section">

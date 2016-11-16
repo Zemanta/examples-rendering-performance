@@ -38,7 +38,11 @@
     function initAnimate (animateFn) {
         clearPlayground();
         requestAnimationFrame(() => {
-            var blocks = addBlocksToPlayground(100, 50);
+            var classes = [];
+            if (document.querySelectorAll('#controls [data-action=toggleLayers]')[0].checked) {
+                classes.push('layers-enabled');
+            }
+            var blocks = addBlocksToPlayground(50, classes);
             running = true;
             animateFn(blocks);
         });
@@ -112,11 +116,11 @@
         stop();
     }
 
-    function addBlocksToPlayground (numberOfBlocks, size, classes) {
+    function addBlocksToPlayground (size, classes) {
         var blocks = [];
-
         var playgroundWidth = playground.offsetWidth;
         var playgroundHeight = playground.offsetHeight;
+        var numberOfBlocks = getNumberOfRenderedElements();
         var fragment = document.createDocumentFragment();
         for (let i = 0; i < numberOfBlocks; i++) {
             let left = Math.max(0, Math.floor(Math.random() * (playgroundWidth - size)));
@@ -143,6 +147,11 @@
         }
         playground.appendChild(fragment);
         return blocks;
+    }
+
+    function getNumberOfRenderedElements () {
+        var input = document.getElementById('numberOfElements');
+        return parseInt(input.value) || 20;
     }
 
     function setActiveButton (target) {
