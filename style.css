@@ -42,15 +42,13 @@ body {
 .playground {
     position: relative;
     height: 800px;
+    border: 1px solid #ddd;
 }
 
 .block {
     position: absolute;
-    box-shadow: 5px 10px 35px 3px rgba(155, 155, 155, 0.85);
-    opacity: 0.6;
-    border-radius: 10px;
-    background: linear-gradient(0deg, #e35325, #ff865e);
-    filter: blur(0.5px);
+    background: #e35325;
+    will-change: transform;
 }
 .block:before {
     content: '';
@@ -60,4 +58,11 @@ body {
     bottom: 5px;
     left: 5px;
     background: url('img/zemanta-logo-white.svg') no-repeat center center;
+}
+.block.heavy-paint {
+    box-shadow: 5px 10px 35px 3px rgba(155, 155, 155, 0.85);
+    opacity: 0.7;
+    border-radius: 5px;
+    background: linear-gradient(0deg, #e35325, #ff865e);
+    filter: blur(0.5px);
 }
