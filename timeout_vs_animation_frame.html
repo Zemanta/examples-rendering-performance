@@ -6,15 +6,24 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="section">
-            setTimeout <span id="time_st"></span>ms<br>
-            <div class="loading-box"><div id="st" class="loading-bar"></div></div>
-            <br>
-            requestAnimationFrame <span id="time_af"></span>ms<br>
-            <div class="loading-box"><div id="af" class="loading-bar"></div></div>
+        <div class="controls section" id="controls">
+            <div class="row">
+                <label class="number-input-label">Work length (ms):<input type="text" id="workLength" class="number-input"/></label>
+                <button data-action="restart" class="button">Restart</button>
+            </div>
         </div>
 
-        <script src="jquery-3.1.1.min.js"></script>
+        <div class="section">
+            <div class="row">
+                setTimeout <span id="timeSt"></span><br>
+                <div class="loading-box"><div id="st" class="loading-bar"></div></div>
+            </div>
+            <div class="row">
+                requestAnimationFrame <span id="timeAf"></span><br>
+                <div class="loading-box"><div id="af" class="loading-bar"></div></div>
+            </div>
+        </div>
+
         <script src="timeout_vs_animation_frame.js"></script>
     </body>
 </html>

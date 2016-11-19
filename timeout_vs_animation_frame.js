@@ -1,42 +1,82 @@
-var start_time = (new Date()).getTime();
+function init () {
+    var controlButtons = document.querySelectorAll('#controls button');
 
-var st = {
-    $elm: $('#st'),
-    len: 0,
-    $disp: $('#time_st')
-};
-var af = {
-    $elm: $('#af'),
-    len: 0,
-    $disp: $('#time_af')
-};
-
-function heavy_process(){
-    var stoptime = 15;
-    var start = (new Date()).getTime();
-    while((new Date()).getTime() - start < stoptime){}
+    controlButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            setActiveButton(event.target);
+            executeAction(event.target.dataset.action);
+        });
+    });
 }
 
-function render(obj){
-    heavy_process();
-    obj.$elm.css('width', obj.len +'px');
-    obj.len += 1;
-    if(obj.len > 300){
-        obj.$disp.text((new Date()).getTime() - start_time);
+function executeAction (action, ...params) {
+    switch (action) {
+    case 'restart': return restart();
+    }
+}
+
+var st = {
+    el: document.getElementById('st'),
+    len: 0,
+    timeLabel: document.getElementById('timeSt'),
+};
+var af = {
+    el: document.getElementById('af'),
+    len: 0,
+    timeLabel: document.getElementById('timeAf')
+};
+
+function work (workLength) {
+    var start = (new Date()).getTime();
+    while((new Date()).getTime() - start < workLength){}
+}
+
+function render (obj, workLength, startTime){
+    if (obj.len > 300){
+        obj.timeLabel.innerHTML = `${((new Date()).getTime() - startTime)}ms`;
         return false;
     }
+    work(workLength);
+    obj.el.style.width = `${obj.len}px`;
+    obj.len += 1;
     return true;
 }
 
-(function st_loop(){
-    if( !render(st) ){
+function restart () {
+    if (st.len > 0 && st.len < 300 || af.len > 0 && af.len < 300) return;
+    var workLength = parseInt(document.getElementById('workLength').value) || 8;
+    var startTime = (new Date()).getTime();
+    st.len = 0;
+    st.timeLabel.innerHTML = '';
+    af.len = 0;
+    af.timeLabel.innerHTML = '';
+    stLoop(st, workLength, startTime);
+    afLoop(af, workLength, startTime);
+}
+
+function stLoop (st, workLength, startTime) {
+    if (!render(st, workLength, startTime)) {
         return false;
     }
-    setTimeout(st_loop, 16.667);
-}());
-(function af_loop(){
-    if( !render(af) ){
+    setTimeout(() => {
+        stLoop(st, workLength, startTime)
+    }, 16.667);
+}
+
+function afLoop (af, workLength, startTime) {
+    if (!render(af, workLength, startTime)) {
         return false;
     }
-    requestAnimationFrame(af_loop);
-}());
+    requestAnimationFrame(() => {
+        afLoop(af, workLength, startTime)
+    });
+}
+
+function setActiveButton (target) {
+    document.querySelectorAll('#controls .button.active').forEach((activeButton) => {
+        activeButton.classList.remove('active');
+    });
+    target.classList.add('active');
+}
+
+init();
