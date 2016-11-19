@@ -32,7 +32,8 @@
 
 /* styles for the stage and animated elements */
 .stage {
-  border: 2px solid #666;
+  margin: auto;
+  border: 1px solid #ddd;
   position: relative;
   width: 800px;
   height: 600px;

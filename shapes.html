@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link href="shapes.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-        <!--<div class="controls section" id="controls">
-            <button data-action="" class="button">Clear</button>
-            <button data-action="" class="button">Animate (Position)</button>
-            <button data-action="" class="button">Animate (Transform)</button>
-            <button data-action="" class="button">Animate (Alternate)</button>
-            <label><input type="text" data-action="" class="checkbox" />Shapes</label>
 
-            <label><input type="checkbox" data-action="" class="checkbox" />Heavy style</label>
-            <label><input type="checkbox" data-action="" class="checkbox" />Heavy work</label>
-            <label><input type="checkbox" data-action="" class="checkbox" />Color animate</label>
-            <label><input type="checkbox" data-action="" class="checkbox" />Expose one</label>
-        </div>-->
-        <div class="section">
-            <div id="stage" class="stage"></div>
-        </div>
-  </body>
-  <script src="shapes.js"></script>
-  <script src="main.js"></script>
+<head>
+	<meta charset="utf-8">
+	<title>Shapes</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="shapes.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="controls section" id="controls">
+		<div class="row">
+			<label class="number-input-label">Number of elements:<input type="text" id="shapeCount" value="10" class="number-input"/></label>
+			<button data-action="animatePosition" class="button">Animate (Position)</button>
+			<button data-action="animateTransform" class="button">Animate (Transform)</button>
+			<button data-action="animateAlternate" class="button">Animate (Alternate)</button>
+			<button data-action="clear" class="button">Clear</button>
+		</div>
+		<div class="row">
+			<label><input type="checkbox" data-action="heavyStyle" class="checkbox" />Heavy style</label>
+			<label><input type="checkbox" data-action="heavyWork" class="checkbox" />Heavy work</label>
+			<label><input type="checkbox" data-action="colorAnimate" class="checkbox" />Color animate</label>
+			<label><input type="checkbox" data-action="exposeOne" class="checkbox" />Expose one</label>
+		</div>
+	</div>
+	<div class="section">
+		<div id="stage" class="stage"></div>
+	</div>
+</body>
+<script src="shapes.js"></script>
+
 </html>
