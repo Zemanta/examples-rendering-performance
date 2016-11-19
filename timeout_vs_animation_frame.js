@@ -11,7 +11,8 @@ function init () {
 
 function executeAction (action, ...params) {
     switch (action) {
-    case 'restart': return restart();
+    case 'restartSt': return restartSt();
+    case 'restartAf': return restartAf();
     }
 }
 
@@ -42,15 +43,21 @@ function render (obj, workLength, startTime){
     return true;
 }
 
-function restart () {
-    if (st.len > 0 && st.len < 300 || af.len > 0 && af.len < 300) return;
-    var workLength = parseInt(document.getElementById('workLength').value) || 8;
+function restartSt () {
+    if (st.len > 0 && st.len < 300) return;
+    var workLength = parseInt(document.getElementById('workLength').value) || 0;
     var startTime = (new Date()).getTime();
     st.len = 0;
     st.timeLabel.innerHTML = '';
+    stLoop(st, workLength, startTime);
+}
+
+function restartAf () {
+    if (af.len > 0 && af.len < 300) return;
+    var workLength = parseInt(document.getElementById('workLength').value) || 0;
+    var startTime = (new Date()).getTime();
     af.len = 0;
     af.timeLabel.innerHTML = '';
-    stLoop(st, workLength, startTime);
     afLoop(af, workLength, startTime);
 }
 
