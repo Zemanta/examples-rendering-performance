@@ -2,32 +2,32 @@
 
 @keyframes animation-x-position {
   from { left: 0; }
-  to   { left: 780px; }
+  to   { left: 750px; }
 }
 
 @keyframes animation-x-transform {
   from { transform: translateX(0); }
-  to   { transform: translateX(780px); }
+  to   { transform: translateX(750px); }
 }
 
 @keyframes animation-y-position {
   to, from { top: 0; }
-  50% { top: 580px; }
+  50% { top: 550px; }
 }
 
 @keyframes animation-y-transform {
   to, from { transform: translateY(0); }
-  50% { transform: translateY(580px); }
+  50% { transform: translateY(550px); }
 }
 
 @keyframes animation-y-transform-color {
-  to, from { transform: translateY(0); background: red; }
-  50% { transform: translateY(580px); background: blue;}
+  to, from { transform: translateY(0); background: #e35325; }
+  50% { transform: translateY(550px); background: #1E6691;}
 }
 
 @keyframes animation-y-position-color {
-  to, from { transform: translateY(0); background: red; }
-  50% { transform: translateY(580px); background: blue;}
+  to, from { transform: translateY(0); background: #e35325; }
+  50% { transform: translateY(550px); background: #1E6691;}
 }
 
 /* styles for the stage and animated elements */
@@ -47,19 +47,27 @@
 
 .shape__outer {
   position: absolute;
-  width: 20px;
+  width: 50px;
   height:100%;
-  /*animation-name: travel;*/
   animation-direction: alternate;
 }
 
 .shape__inner {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
-  background: red;
+  background: #e35325;
   animation-duration: 3.8s;
+}
+.shape__inner:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    background: url('img/zemanta-logo-white.svg') no-repeat center center;
 }
 
 .shape__inner--animate-position {
@@ -90,7 +98,7 @@
 .shape__inner--heavy-style { 
   background: radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
   opacity: 0.9;
-  filter: blur(2px);
+  /*filter: blur(2px);*/
   box-shadow: 5px 10px 35px 3px rgba(155,155,155,0.85);
 }
 
