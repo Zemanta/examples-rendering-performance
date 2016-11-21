@@ -7,11 +7,28 @@ body {
     color: #333333;
 }
 
+a {
+    color: #333333;
+}
+a:hover,
+a:visited,
+a:active {
+    color: #3f547f;
+}
+
 .section {
     margin-bottom: 20px;
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.section h1 {
+    margin: 0;
+}
+
+.navigation ul {
+    margin: 0;
 }
 
 .row {
