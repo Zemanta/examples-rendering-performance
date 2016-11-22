@@ -1,5 +1,3 @@
-/* keyframes definition for WebKit browsers */
-
 @keyframes animation-x-position {
   from { left: 0; }
   to   { left: 750px; }
@@ -30,7 +28,6 @@
   50% { transform: translateY(550px); background: #1E6691;}
 }
 
-/* styles for the stage and animated elements */
 .stage {
   margin: auto;
   border: 1px solid #ddd;

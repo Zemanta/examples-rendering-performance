@@ -19,35 +19,6 @@ let stage = {
 
 let emptyStage = $.extend(true, {}, stage);
 
-function updateStage (stage) {
-  // Sync #shapes
-  let activeShapes = $('.shape__inner').length;
-  if (activeShapes < stage.shapeCount) {
-    createElements(stage.shapeCount - activeShapes);
-  } 
-  if (activeShapes > stage.shapeCount) {
-    clearStage();
-    createElements(stage.shapeCount);
-  }
-
-  // configure animation
-  configureAnimation(SHAPE_INNER, stage.animation[SHAPE_INNER], stage.colorAnimate);
-  configureAnimation(SHAPE_OUTER, stage.animation[SHAPE_OUTER]);
-
-  // configure work
-  if (stage.heavyWork) {
-    startWork(200);
-  } else {
-    stopWork();
-  }
-
-  // configure style
-  enableHeavyStyle(stage.heavyStyle);
-
-  // expose one
-  exposeOne(stage.exposeOne);
-}
-
 $(function() {
     function init () {
         var controlButtons = document.querySelectorAll('#controls button');
@@ -94,12 +65,8 @@ $(function() {
     init();
 });
 
-function clearStage () {
-  $('.stage').empty();
-}
-
 //
-// Create elements
+// Elements creation
 //
 function createElements(count) {
   var documentFragment = $(document.createDocumentFragment());
@@ -138,9 +105,39 @@ function randomizeAnimation (outer, inner) {
   inner.css('animation-delay', delayInner);
 }
 
+//
+// Stage updates
+//
+function updateStage (stage) {
+  // Sync #shapes
+  let activeShapes = $('.shape__inner').length;
+  if (activeShapes < stage.shapeCount) {
+    createElements(stage.shapeCount - activeShapes);
+  } 
+  if (activeShapes > stage.shapeCount) {
+    clearStage();
+    createElements(stage.shapeCount);
+  }
+
+  // configure animation
+  configureAnimation(SHAPE_INNER, stage.animation[SHAPE_INNER], stage.colorAnimate);
+  configureAnimation(SHAPE_OUTER, stage.animation[SHAPE_OUTER]);
+
+  // other configurations - heavy style, work expose one
+  enableHeavyStyle(stage.heavyStyle);
+  exposeOne(stage.exposeOne);
+
+  // configure heavy work
+  if (stage.heavyWork) startWork(200);
+  else  stopWork();
+}
+
+function clearStage () {
+  $('.stage').empty();
+}
 
 // 
-// Sgate function
+// Stage functions
 //
 function exposeOne (expose) {
   if (expose) {
