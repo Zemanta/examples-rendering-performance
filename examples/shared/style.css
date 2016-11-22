@@ -107,7 +107,7 @@ a:active {
     right: 5px;
     bottom: 5px;
     left: 5px;
-    background: url('img/zemanta-logo-white.svg') no-repeat center center;
+    background: url('../../assets/zemanta-logo-white.svg') no-repeat center center;
 }
 .block.layers-enabled {
     will-change: transform;
