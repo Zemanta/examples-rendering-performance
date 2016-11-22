@@ -39,7 +39,7 @@ function render (obj, workLength, startTime){
     }
     work(workLength);
     obj.el.style.width = `${obj.len}px`;
-    obj.len += 1;
+    obj.len += 4;
     return true;
 }
 
@@ -63,6 +63,7 @@ function restartAf () {
 
 function stLoop (st, workLength, startTime) {
     if (!render(st, workLength, startTime)) {
+        restartAf();
         return false;
     }
     setTimeout(() => {
