@@ -102,9 +102,9 @@
         var elements = playground.children;
         for (let i = 0; i < elements.length; i++) {
             if (enabled) {
-                elements[i].classList.add('layers-enabled');
+                elements[i].classList.add('block--layers-enabled');
             } else {
-                elements[i].classList.remove('layers-enabled');
+                elements[i].classList.remove('block--layers-enabled');
             }
         }
     }
