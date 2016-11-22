@@ -24,7 +24,8 @@ a:active {
 }
 
 .section h1 {
-    margin: 0;
+    display: inline-block;
+    margin: 0 10px 0 0;
 }
 
 .navigation ul {
@@ -89,3 +90,9 @@ a:active {
     margin-right: 15px;
 }
 
+.footer {
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+}
