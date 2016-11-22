@@ -1,0 +1,25 @@
+.playground {
+    position: relative;
+    height: 800px;
+    border: 1px solid #ddd;
+}
+
+.block {
+    position: absolute;
+    border-radius: 8px;
+    background: #e35325;
+}
+
+.block:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    background: url('../../assets/zemanta-logo-white.svg') no-repeat center center;
+}
+
+.block--layers-enabled {
+    will-change: transform;
+}
